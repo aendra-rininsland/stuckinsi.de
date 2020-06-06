@@ -55,6 +55,7 @@ export default function Home({
               has been <strong>stuck insi.de</strong> for{" "}
               {calcDays(current.first.StartDate)} days{" "}
             </span>
+            <h5>{lookupStatus(country.latest.PolicyValue)}</h5>
           ) : (
             <span>
               How long have you been <strong>Stuck Insi.de</strong>?
