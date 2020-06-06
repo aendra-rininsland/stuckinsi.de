@@ -298,7 +298,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           {
             code: d.Code,
             name: d.CountryName,
-            latest: allCountries.find((e) => e.EndDate === "null"),
+            latest: allCountries
+              .filter((e) => d.CountryCode === e.CountryCode)
+              .find((e) => e.EndDate === "null"),
             first,
           },
         ];
