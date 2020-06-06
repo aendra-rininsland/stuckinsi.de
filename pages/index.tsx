@@ -37,6 +37,9 @@ export default function Home({ country, countryData, current }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <h1>
+          Caveat: I was very drunk when I coded this and it's probably wrong
+        </h1>
         {current ? (
           <>
             <h1 className="title">
