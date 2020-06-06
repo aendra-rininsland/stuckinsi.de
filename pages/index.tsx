@@ -37,9 +37,11 @@ export default function Home({ country, countryData, current }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>
-          Caveat: I was very drunk when I coded this and it's probably wrong
-        </h1>
+        <h6>
+          <a href="#footer">
+            Caveat: I was very drunk when I coded this and it's probably wrong
+          </a>
+        </h6>
         {current ? (
           <>
             <h1 className="title">
@@ -83,7 +85,7 @@ export default function Home({ country, countryData, current }) {
           })}
         </div>
       </main>
-      <footer>
+      <footer id="footer">
         All data from the{" "}
         <a href="https://github.com/OxCGRT/covid-policy-tracker">
           Oxford COVID-19 policy tracker
