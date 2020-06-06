@@ -46,22 +46,23 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="title">
-          {current ? (
-            <span>
+        {current ? (
+          <>
+            <h1 className="title">
               <span style={{ textDecoration: "underline" }}>
                 {current.name}
               </span>{" "}
               has been <strong>stuck insi.de</strong> for{" "}
               {calcDays(current.first.StartDate)} days{" "}
-            </span>
-            <h5>{lookupStatus(country.latest.PolicyValue)}</h5>
-          ) : (
-            <span>
-              How long have you been <strong>Stuck Insi.de</strong>?
-            </span>
-          )}
-        </h1>
+            </h1>
+            <h2>Status: {lookupStatus(current.latest.PolicyValue)}</h2>
+            <p>{current.latest.InitialNote}</p>
+          </>
+        ) : (
+          <h1 className="title">
+            How long have you been <strong>Stuck Insi.de</strong>?
+          </h1>
+        )}
 
         <p className="description"></p>
 
@@ -82,6 +83,12 @@ export default function Home({
           })}
         </div>
       </main>
+      <footer>
+        All data from the{" "}
+        <a href="https://github.com/OxCGRT/covid-policy-tracker">
+          Oxford COVID-19 policy tracker
+        </a>
+      </footer>
 
       <style jsx>{`
         .container {
