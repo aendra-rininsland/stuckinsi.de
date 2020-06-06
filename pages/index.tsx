@@ -105,6 +105,9 @@ export default function Home({ country, countryData, current }) {
         from reading their content because they're too weak-ass to accommodate
         GDPR, and it's not even like I read Chinese news websites, so, yeah,
         fuck it! NO AMERICAN OR CHINESE DATA. BYEEEE.
+        <br />
+        <strong>Update 5:</strong> I'm kidding both China and U.S. geez. I'll
+        fix it later, lol. 😘
       </footer>
 
       <style jsx>{`
