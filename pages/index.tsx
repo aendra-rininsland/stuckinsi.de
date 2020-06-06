@@ -286,21 +286,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const countryData = [
     ...new Map(
       allCountries.map((d) => {
-        const [first] = allCountries
+        const [first, ...rest] = allCountries
           .filter((e) => d.CountryCode === e.CountryCode)
           .sort(
             (a, b) =>
               new Date(a.StartDate).valueOf() - new Date(b.StartDate).valueOf()
           );
+        const [latest] = rest.reverse();
 
         return [
           d.Code,
           {
             code: d.Code,
             name: d.CountryName,
-            latest: allCountries
-              .filter((e) => d.CountryCode === e.CountryCode)
-              .find((e) => e.EndDate === "null"),
+            latest,
             first,
           },
         ];
