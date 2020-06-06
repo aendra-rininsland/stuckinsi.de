@@ -39,9 +39,9 @@ export default function Home({
     <div className="container">
       <Head>
         {current ? (
-          <title>How long has {country} been stuck inside?</title>
+          <title>How long has {country} been stuckinsi.de?</title>
         ) : (
-          <title>How long have you been stuck inside?</title>
+          <title>How long have you been stuckinsi.de?</title>
         )}
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -52,7 +52,7 @@ export default function Home({
               <span style={{ textDecoration: "underline" }}>
                 {current.name}
               </span>{" "}
-              has been <strong>stuck insi.de</strong> for{" "}
+              has been <em>stuck insi.de</em> for{" "}
               {calcDays(current.first.StartDate)} days{" "}
             </h1>
             <h2>Status: {lookupStatus(current.latest.PolicyValue)}</h2>
@@ -60,7 +60,7 @@ export default function Home({
           </>
         ) : (
           <h1 className="title">
-            How long have you been <strong>Stuck Insi.de</strong>?
+            How long have you been <em>Stuck Insi.de</em>?
           </h1>
         )}
 
