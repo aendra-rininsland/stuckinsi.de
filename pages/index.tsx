@@ -24,17 +24,8 @@ const calcDays = (ts) => {
   return differenceInCalendarDays(new Date(), new Date(ts));
 };
 
-export default function Home({
-  country,
-  allCountries,
-  countryData,
-  latest,
-  days,
-}) {
-  const current = countryData.find(
-    (d) => d.code.toLowerCase() === country.toLowerCase()
-  );
-
+export default function Home({ country, countryData, current }) {
+  // console.log(current);
   return (
     <div className="container">
       <Head>
@@ -55,8 +46,12 @@ export default function Home({
               has been <em>stuck insi.de</em> for{" "}
               {calcDays(current.first.StartDate)} days{" "}
             </h1>
-            <h2>Status: {lookupStatus(current.latest.PolicyValue)}</h2>
-            <p>{current.latest.InitialNote}</p>
+            {current.latest && (
+              <>
+                <h2>Status: {lookupStatus(current.latest.PolicyValue)}</h2>
+                <p>{current.latest.InitialNote}</p>
+              </>
+            )}
           </>
         ) : (
           <h1 className="title">
@@ -76,7 +71,9 @@ export default function Home({
               >
                 <h3>{country.name}</h3>
                 <h4>Current status:</h4>
-                <p>{lookupStatus(country.latest.PolicyValue)}</p>
+                {country.latest && (
+                  <p>{lookupStatus(country.latest.PolicyValue)}</p>
+                )}
                 <h4>Days locked down: {calcDays(country.first.StartDate)}</h4>
               </a>
             );
@@ -259,7 +256,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     "https://app.workbenchdata.com/public/moduledata/live/353395.json"
   );
 
-  const { iso3: codeCurrent } = lookup.byInternet(country) || {};
   const allCountries: ICountry[] = data
     .map((d) => {
       const codes = lookup.byIso(d.CountryCode);
@@ -292,27 +288,30 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             (a, b) =>
               new Date(a.StartDate).valueOf() - new Date(b.StartDate).valueOf()
           );
-        const [latest] = rest.reverse();
-
+        const [latest] = [...rest].reverse();
+        // console.log(rest);
         return [
           d.Code,
           {
             code: d.Code,
             name: d.CountryName,
-            latest,
-            first,
+            iso: d.CountryCode,
+            latest: latest || null,
+            first: first || null,
           },
         ];
       })
     ).values(),
   ];
+
   return {
     props: {
       country,
       countryData,
-      current: codeCurrent
-        ? countryData.filter((d) => d.code === codeCurrent)
-        : null,
+      current:
+        countryData.find(
+          (d) => d.code.toLowerCase() === country.trim().toLowerCase()
+        ) || null,
     },
   };
 };
