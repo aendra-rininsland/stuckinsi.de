@@ -88,6 +88,11 @@ export default function Home({
         <a href="https://github.com/OxCGRT/covid-policy-tracker">
           Oxford COVID-19 policy tracker
         </a>
+        .
+        <br />
+        Uh I have no idea why China isn't showing up. I know that looks really
+        bad, but I 100% promise it's not intentional. I'm just really low on
+        sleep and can't fix it right now sorry, maybe this afternoon sometime.
       </footer>
 
       <style jsx>{`
