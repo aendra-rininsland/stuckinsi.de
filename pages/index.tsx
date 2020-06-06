@@ -87,13 +87,24 @@ export default function Home({ country, countryData, current }) {
         </a>
         .
         <br />
-        Uh I have no idea why China isn't showing up. I know that looks really
-        bad, but I 100% promise it's not intentional. I'm just really low on
-        sleep and can't fix it right now sorry, maybe this afternoon sometime.
+        <strong>Update 1:</strong> Uh I have no idea why China isn't showing up.
+        I know that looks really bad, but I 100% promise it's not intentional.
+        I'm just really low on sleep and can't fix it right now sorry, maybe
+        this afternoon sometime.
         <br />
-        Uh I think it's because both China and the US are presented more
-        granularly in this dataset than my code allows, it's like a 20 minute
-        fix but I'm way too tired for this shit rn like give me a day lol.
+        <strong>Update 2:</strong> Uh I think it's because both China and the US
+        are presented more granularly in this dataset than my code allows, it's
+        like a 20 minute fix but I'm way too tired for this shit rn like give me
+        a day lol.
+        <br />
+        <strong>Update 3:</strong> Yep that's definitely it, the U.S. isn't
+        visible either. Hmm. That's unfortunate.
+        <br />
+        <strong>Update 4:</strong> On the other hand, the U.S. and China consume
+        ALL the oxygen in the news cycle, and American news websites block me
+        from reading their content because they're too weak-ass to accommodate
+        GDPR, and it's not even like I read Chinese news websites, so, yeah,
+        fuck it! NO AMERICAN OR CHINESE DATA. BYEEEE.
       </footer>
 
       <style jsx>{`
@@ -119,19 +130,6 @@ export default function Home({ country, countryData, current }) {
           width: 100%;
           height: 100px;
           border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
         }
 
         a {
