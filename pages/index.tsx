@@ -93,6 +93,10 @@ export default function Home({
         Uh I have no idea why China isn't showing up. I know that looks really
         bad, but I 100% promise it's not intentional. I'm just really low on
         sleep and can't fix it right now sorry, maybe this afternoon sometime.
+        <br />
+        Uh I think it's because both China and the US are presented more
+        granularly in this dataset than my code allows, it's like a 20 minute
+        fix but I'm way too tired for this shit rn like give me a day lol.
       </footer>
 
       <style jsx>{`
