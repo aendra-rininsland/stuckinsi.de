@@ -34,7 +34,7 @@ const MapChart = ({
         <Geographies geography={`/geoMap.json`}>
           {({ geographies }) =>
            {//console.log(countryData.find((s) => s.ISO_A3 === "POL"), geographies.find((s) => s.iso === "POL"))
-           console.log(countryData, geographies);
+           console.log(countryData);
              return geographies.map((geo) => {
               const d = countryData.find((s) => s.iso === geo.properties.ISO_A3);
               const latest = d?.latest;
@@ -43,6 +43,7 @@ const MapChart = ({
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
+                  onClick={()=> window.location.href = `https://${d.code}.stuckinsi.de`}
                   //fill={colorScale(0.7)}
                   fill={colorScale(!isNaN(latest?.PolicyValue) ? latest?.PolicyValue : "no data")}
                 />
