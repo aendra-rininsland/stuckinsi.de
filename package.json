@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/country-code-lookup": "0.0.0",
     "@types/date-fns": "^2.6.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "country-code-lookup": "0.0.17",
     "date-fns": "^2.14.0",
     "next": "9.4.4",
