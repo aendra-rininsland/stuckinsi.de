@@ -4,6 +4,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import * as lookup from "country-code-lookup";
 import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
+import MapChart from "./api/MapChart";
 
 const lookupStatus = (status) => {
   switch (status) {
@@ -42,8 +43,10 @@ export default function Home({ country, countryData, current }) {
             Caveat: I was very drunk when I coded this and it's probably wrong
           </a>
         </h6>
+        <MapChart countryData={countryData} country={country} lockdownStatus={current?.latest.PolicyValue}/>
         {current ? (
           <>
+         
             <h1 className="title">
               <span style={{ textDecoration: "underline" }}>
                 {current.name}
